@@ -11,6 +11,7 @@ import java.util.zip.ZipOutputStream;
 
 public class DownloaderAndZipper implements Listener {
     private final UrlManager urlManager;
+    private static final String DIRECTORY_PATH = "src/ficheros/";
 
     // Constructor
     public DownloaderAndZipper(UrlManager urlManager) {
@@ -34,7 +35,7 @@ public class DownloaderAndZipper implements Listener {
     private void downloadFiles() {
         for (Map.Entry<String, String> entry : urlManager.getUrls().entrySet()) {
             String url = entry.getKey();
-            String filename = entry.getValue();
+            String filename = DIRECTORY_PATH + entry.getValue();
             if (url == null || url.isEmpty() || !url.contains("://")) {
                 System.out.println("Invalid URL: " + url);
                 continue;
@@ -47,11 +48,12 @@ public class DownloaderAndZipper implements Listener {
             }
         }
     }
-// Este método comprime los ficheros descargados en un archivo ZIP llamado "compressed.zip"
+
+    // Este método comprime los ficheros descargados en un archivo ZIP llamado "compressed.zip"
     private void compressFiles() {
-        try (ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream("compressed.zip"))) {
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(DIRECTORY_PATH + "compressed.zip"))) {
             for (String filename : urlManager.getUrls().values()) {
-                File file = new File(filename);
+                File file = new File(DIRECTORY_PATH + filename);
                 if (!file.exists()) {
                     System.out.println("File does not exist: " + filename);
                     continue;

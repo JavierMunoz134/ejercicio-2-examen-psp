@@ -15,3 +15,5 @@ El código principal del proyecto se encuentra en las clases DownloaderAndZipper
 Cómo Ejecutar
 
 Una vez que la aplicación esté en ejecución, te pedirá que introduzcas una URL. Esta URL se añadirá a una lista de URLs para descargar. Puedes introducir tantas URLs como desees. Cuando hayas terminado de introducir URLs, escribe 'salir' y la aplicación comenzará a descargar los archivos de las URLs proporcionadas y a comprimirlos en un archivo .zip.
+
+Puedes encontrar los archivos de las url y el .zip en el directorio ficheros dentro de SRC
